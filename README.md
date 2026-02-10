@@ -31,7 +31,6 @@ The `New-ImagingISO.ps1` script exports only the "Windows Setup" index from `boo
 6. If you need to run even more scripts, you can copy them to `shell:common startup` (`C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup`), where they will automatically launch after logging in with a user account.
 
 # Private repo option:
-
 If you want your GitHub repo that contains all your scripts to be private, the `Save-GitHubFiles` function can be changed to specify a personal access token when downloading files:
 
 ```
@@ -74,3 +73,9 @@ function Save-GitHubFiles {
     }
 }
 ```
+# Potential improvements:
+- This code is messy and I'm working on it all the time in our implementation at our company.
+- Repeated functions can instead be put into a module.
+- These scripts can be broken up by functionality and sourced into the larger scripts.
+- You could remove the creation of local accounts in the `autounattend.xml` files and instead do that within your Windows Setup script. (no plain text passwords!)
+- Totally automated approach: You could initially create a local admin account without a password (or create it with a password and just enable autologon), and also initially disable UAC/change the UAC consent prompt behavior so that your PowerShell scripts launch automatically, without a prompt. Of course, at the end your script should re-enable those passwords and UAC behavior for security. But this would give you the same level of automation as an SCCM task sequence.
