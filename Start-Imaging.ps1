@@ -484,7 +484,7 @@ function Show-ImagingForm {
     $PasswordEntry.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]441,[System.Int32]26))
     $PasswordEntry.TabIndex = [System.Int32]19
     $PasswordEntry.ImeMode = [System.Windows.Forms.ImeMode]::NoControl
-    $PasswordEntry.PasswordChar = '•'
+    $PasswordEntry.PasswordChar = "•"
     $PasswordEntry.add_TextChanged({Validate})
     #
     #EyeButton
@@ -1229,7 +1229,7 @@ if ($Manufacturer -eq "Dell Inc.") {
 
 #region DownloadDomainComputersCSVs
 
-Save-GithubFiles -Files @("DomainComputers/Dom1.csv", "DomainComputers/Dom2.csv") -DownloadDirectory "$ENV:RAMDrive\ComputerNameImaging\DomainComputers"
+Save-GithubFiles -Files @("DomainComputers/Dom1.csv", "DomainComputers/Dom2.csv") -DownloadDirectory "$ENV:RAMDrive\CompanyNameImaging\DomainComputers"
 
 #endregion DownloadDomainComputersCSVs
 
