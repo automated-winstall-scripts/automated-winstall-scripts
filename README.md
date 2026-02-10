@@ -17,6 +17,9 @@ iwr -useb https://raw.githubusercontent.com/automated-winstall-scripts/automated
 
 This downloads and runs the `New-ImagingISO.ps1` script, which converts the normal Windows 11 ISO into your imaging ISO. If you clone or take inspiration from this repo, you can edit `New-ImagingISO.ps1` to do whatever you want (obviously), but it gives you a blueprint for what can be done.
 
+## WARNING:
+**If you boot into your newly created imaging ISO, it will automatically erase the computer's internal drive (there is a brief countdown before it does, but still). This is intended behavior. Only test this out in a virtual machine (if this even works there), or on a spare computer that you don't care about.**
+
 ## What `New-ImagingISO.ps1` does (at a high level):
 The `New-ImagingISO.ps1` script exports only the "Windows Setup" index from `boot.wim` and mounts it. Within that mounted image, it renames the `setup.exe` within to `setup-custom.exe` (preventing it from automatically launching), and downloads the `startnet.cmd` script in the "files" folder from this repo to `C:\PathToMount\Windows\System32` (this is the script that automatically launches upon booting into Windows Setup).
 3. `startnet.cmd` calls another script, `Test-NetworkConnectivity.ps1`, which kicks off the entire PowerShell imaging sequence.
