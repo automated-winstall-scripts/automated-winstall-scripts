@@ -484,7 +484,7 @@ function Show-ImagingForm {
     $PasswordEntry.Size = (New-Object -TypeName System.Drawing.Size -ArgumentList @([System.Int32]441,[System.Int32]26))
     $PasswordEntry.TabIndex = [System.Int32]19
     $PasswordEntry.ImeMode = [System.Windows.Forms.ImeMode]::NoControl
-    $PasswordEntry.PasswordChar = "•"
+    $PasswordEntry.PasswordChar = [char]0x2022
     $PasswordEntry.add_TextChanged({Validate})
     #
     #EyeButton
@@ -555,14 +555,14 @@ function Show-ImagingForm {
     $PCInfo.Select($start, 10) #Make "Asset tag:" bold
     $PCInfo.SelectionFont = (New-Object System.Drawing.Font($PCInfo.Font, [System.Drawing.FontStyle]::Bold))
     $PCInfo.Select($PCInfo.TextLength, 0)
-    $PCInfo.AppendText("$CurrentAssetTag • ")
+    $PCInfo.AppendText("$CurrentAssetTag $([char]0x2022) ")
     #Serial number
     $start = $PCInfo.TextLength
     $PCInfo.AppendText("Serial number: ")
     $PCInfo.Select($start, 14) #Make "Serial number:" bold
     $PCInfo.SelectionFont = (New-Object System.Drawing.Font($PCInfo.Font, [System.Drawing.FontStyle]::Bold))
     $PCInfo.Select($PCInfo.TextLength, 0)
-    $PCInfo.AppendText("$SN • ")
+    $PCInfo.AppendText("$SN $([char]0x2022) ")
     #Product number
     $start = $PCInfo.TextLength
     $PCInfo.AppendText("Product number: ")
