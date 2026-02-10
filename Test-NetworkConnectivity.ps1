@@ -1,3 +1,5 @@
+Clear-Host
+
 #region Functions
 
 #Function to determine drive letter of USB install drive and WinPE RAM drive and set them to variables
